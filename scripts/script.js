@@ -2,22 +2,15 @@ $(document).ready(() => {
     $('#p-message').hide();
     $('#table-animals').hide();
     $('#btn-submit').click(() => {
-        const ani = getAnimals();
-        console.log(ani);        
+        const animals = getAnimals();
+        console.log(animals);        
 
-        if (checkAnimal(counter)) {
-            succeed();
-        }
-        else {
-            fail();
-        }
-
-        counter ++ ;
-        console.log(counter)
+        if (checkAnimal()) succeed();
+        else fail();
+        
     })
 })
 
-var counter = 0;
 var animals = [];
 
 const getAnimals = () => {
@@ -50,8 +43,8 @@ const checkUnique = () => {
     return true;
 }
 
-const checkAnimal = (counter) => {
-    if (counter < 1) {
+const checkAnimal = () => {
+    if (animals.length < 2) { // When there is only 1 animal in array.
         return true;
     }
     else {
@@ -77,6 +70,6 @@ const fail = () => {
     $('#table-animals').hide();
     $('#p-message').show();
     $('#p-message').text('Double or wrong letter.')
-    counter = 0;
+
     animals = [];
 }
