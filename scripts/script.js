@@ -3,21 +3,17 @@ $(document).ready(() => {
     $('#table-animals').hide();
     $('#btn-submit').click(() => {
         const ani = getAnimals();
-        console.log(ani);
+        console.log(ani);        
 
-        console.log(checkAnimal())
-        console.log(checkUnique())
-        console.log(checkLetters())
-        console.log(counter)
         if (checkAnimal(counter)) {
             succeed();
         }
         else {
             fail();
         }
-        counter ++ ;
 
-        console.log(ani)
+        counter ++ ;
+        console.log(counter)
     })
 })
 
