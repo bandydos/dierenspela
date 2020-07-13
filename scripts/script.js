@@ -3,11 +3,14 @@ $(document).ready(() => {
     $('#table-animals').hide();
     $('#btn-submit').click(() => {
         const animals = getAnimals();
-        console.log(animals);        
+        console.log(animals);
 
-        if (checkAnimal()) succeed();
-        else fail();
-        
+        if (checkAnimal()) {
+            succeed();
+        }
+        else {
+            fail();
+        }
     })
 })
 
