@@ -57,14 +57,16 @@ const checkAnimal = () => {
     const lastAnimal = animals[animals.length - 2];
     const newAnimal = animals[animals.length - 1];
 
-    if (animals.length < 2) { // When there is only 1 animal in array.
+    if (animals.length < 2 && checkAccepted(newAnimal)) { // When there is only 1 animal in array.
         return true;
     }
-    else {
+    if (animals.length > 1) {
         if (checkLetters(lastAnimal, newAnimal) && checkUnique(newAnimal) && checkAccepted(newAnimal)) {
             return true;
         }
     }
+
+
 
     return false;
 }
@@ -83,7 +85,7 @@ const fail = () => {
     $('#table-animals tbody tr').remove();
     $('#table-animals').hide();
     $('#p-message').show();
-    $('#p-message').text('Double or wrong letter.')
+    $('#p-message').text('Double or unacceptable animal / wrong letter.')
 
     animals = [];
 }
