@@ -23,10 +23,7 @@ const getAnimals = () => {
     return animals;
 }
 
-const checkLetters = () => {
-    const lastAnimal = animals[animals.length - 2];
-    const newAnimal = animals[animals.length - 1];
-
+const checkLetters = (lastAnimal, newAnimal) => {
     if (lastAnimal[lastAnimal.length - 1] == newAnimal[0]) {
         return true;
     }
@@ -34,10 +31,8 @@ const checkLetters = () => {
     return false;
 }
 
-const checkUnique = () => {
-    const newAnimal = animals[animals.length - 1];
-
-    for (let i = 0; i < animals.length - 1; i++) {
+const checkUnique = (newAnimal) => {
+    for (let i = 0; i < animals.length - 1; i++) { // l-1 for last new insertion.
         if (newAnimal == animals[i]) {
             return false;
         }
@@ -46,18 +41,34 @@ const checkUnique = () => {
     return true;
 }
 
-const checkAnimal = () => {
-    if (animals.length < 2) { // When there is only 1 animal in array.
-        return true;
-    }
-    else {
-        if (checkLetters() && checkUnique()) {
+const acceptedAnimals = ['aap', 'paard', 'dromedaris', 'slang', 'papegaai'];
+
+const checkAccepted = (newAnimal) => {
+    for (let i = 0; i < acceptedAnimals.length; i++) {
+        if (newAnimal == acceptedAnimals[i]) {
             return true;
         }
     }
 
     return false;
 }
+
+const checkAnimal = () => {
+    const lastAnimal = animals[animals.length - 2];
+    const newAnimal = animals[animals.length - 1];
+
+    if (animals.length < 2) { // When there is only 1 animal in array.
+        return true;
+    }
+    else {
+        if (checkLetters(lastAnimal, newAnimal) && checkUnique(newAnimal) && checkAccepted(newAnimal)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 
 const succeed = () => {
     $('#table-animals tbody tr').remove();
