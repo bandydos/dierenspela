@@ -41,7 +41,8 @@ const checkUnique = (newAnimal) => {
     return true;
 }
 
-const acceptedAnimals = ['aap', 'paard', 'dromedaris', 'slang', 'papegaai'];
+// Expansion: get possible animals from server.
+const acceptedAnimals = ['aap', 'paard', 'dromedaris', 'slang', 'papegaai', 'gorilla', 'arend']; // Example animals.
 
 const checkAccepted = (newAnimal) => {
     for (let i = 0; i < acceptedAnimals.length; i++) {
@@ -65,8 +66,6 @@ const checkAnimal = () => {
             return true;
         }
     }
-
-
 
     return false;
 }
