@@ -1,1 +1,2 @@
-# dierenspela
+# Dierenspel version C!
+Dutch edition.
